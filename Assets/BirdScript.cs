@@ -7,7 +7,7 @@ public class BirdScript : MonoBehaviour
     // Start is called before the first frame update
 
     public Rigidbody2D myRigidbody;
-    public float flapStrength = 15f;
+    public float flapStrength = 5f;
     void Start()
     {
 
