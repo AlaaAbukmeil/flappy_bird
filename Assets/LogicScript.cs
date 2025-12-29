@@ -9,8 +9,12 @@ public class LogicScript : MonoBehaviour
     public int playerScore = 0;
     public Text scoreText;
     public GameObject gameOverScreen;
+    public GameObject startScreen;
     public AudioSource scoreSound;
-
+    void Start()
+    {
+        Time.timeScale = 0f;
+    }
     [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {
@@ -26,5 +30,10 @@ public class LogicScript : MonoBehaviour
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
+    }
+    public void StartGame()
+    {
+        startScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
