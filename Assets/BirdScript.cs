@@ -9,6 +9,8 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public float flapStrength = 4f;
     public LogicScript logic;
+    public GameObject arrowPrefab;
+    public Transform shootPoint;
     public bool birdIsAlive = true;
     void Start()
     {
@@ -22,7 +24,11 @@ public class BirdScript : MonoBehaviour
         {
           myRigidbody.velocity = Vector2.up * flapStrength;
         }
-        if(transform.position.y > 5 || transform.position.y < -5)
+        if (Input.GetKeyDown(KeyCode.F) && birdIsAlive)
+        {
+            Shoot();
+        }
+        if (transform.position.y > 5 || transform.position.y < -5)
         {
             logic.gameOver();
             birdIsAlive = false;
@@ -33,5 +39,9 @@ public class BirdScript : MonoBehaviour
     {
         logic.gameOver();
         birdIsAlive = false;
+    }
+    void Shoot()
+    {
+        Instantiate(arrowPrefab, shootPoint.position, arrowPrefab.transform.rotation);
     }
 }

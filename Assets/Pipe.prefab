@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4831266360625163482}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.6289, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 0.12, y: 0.3865067, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 3854683506678834946}
   m_Layer: 0
   m_Name: Middle
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 6003253732081103998}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14, y: 0.00099999, z: -0.0090972185}
+  m_LocalPosition: {x: 0.21, y: 0.06, z: -0.0090972185}
   m_LocalScale: {x: 0.23, y: 2.63, z: 1.1655982}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -248,7 +248,7 @@ Transform:
   m_GameObject: {fileID: 8123408166666666580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.939, z: 0}
+  m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 0.12, y: 0.41485855, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1128998282398825038}
-  - component: {fileID: 2125685164865053971}
+  - component: {fileID: 6533417145334779994}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -386,7 +386,7 @@ Transform:
   - {fileID: 937740580359844168}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2125685164865053971
+--- !u!114 &6533417145334779994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,3 +400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   deadZone: -45
+  isClosed: 0
+  topPipe: {fileID: 4831266360625163482}
+  bottomPipe: {fileID: 8123408166666666580}
+  target: {fileID: 6003253732081103998}
+  openGap: 3
