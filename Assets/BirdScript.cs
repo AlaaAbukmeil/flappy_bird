@@ -22,6 +22,11 @@ public class BirdScript : MonoBehaviour
         {
           myRigidbody.velocity = Vector2.up * flapStrength;
         }
+        if(transform.position.y > 5 || transform.position.y < -5)
+        {
+            logic.gameOver();
+            birdIsAlive = false;
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
