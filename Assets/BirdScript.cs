@@ -7,7 +7,7 @@ public class BirdScript : MonoBehaviour
     // Start is called before the first frame update
 
     public Rigidbody2D myRigidbody;
-    public float flapStrength = 5f;
+    public float flapStrength = 4f;
     public LogicScript logic;
     public bool birdIsAlive = true;
     void Start()

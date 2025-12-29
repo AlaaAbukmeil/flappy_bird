@@ -17,8 +17,9 @@ public class PipeMiddleScript : MonoBehaviour
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    { 
-        if(collision.gameObject.layer == 3)
+    {
+        BirdScript bird = collision.GetComponent<BirdScript>();
+        if (bird != null && bird.birdIsAlive)
         {
             logic.AddScore(1);
         }

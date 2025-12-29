@@ -11,6 +11,7 @@ public class PipeSpawnScript : MonoBehaviour
     public float heightOffset = 4f;
     void Start()
     {
+        spawnPipe();
     }
 
     // Update is called once per frame
