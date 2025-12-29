@@ -7,13 +7,17 @@ using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
     public int playerScore = 0;
+    public int highScore = 0;
     public Text scoreText;
+    public Text highScoreText;
     public GameObject gameOverScreen;
     public GameObject startScreen;
     public AudioSource scoreSound;
     void Start()
     {
         Time.timeScale = 0f;
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        highScoreText.text = "Best: " + highScore.ToString();
     }
     [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
@@ -30,6 +34,13 @@ public class LogicScript : MonoBehaviour
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
+        if (playerScore > highScore)
+        {
+            highScore = playerScore;
+            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();
+        }
+        highScoreText.text = "Best: " + highScore.ToString();
     }
     public void StartGame()
     {
