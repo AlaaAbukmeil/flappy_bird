@@ -13,8 +13,13 @@ public class PipeScript : MonoBehaviour
     public GameObject target;
     public float openGap = 3f;
     public float openSpeed = 2f;
+
     void Start()
     {
+    }
+    public void Init(bool closed)
+    {
+        isClosed = closed;
         if (isClosed)
         {
             ClosePipe();
@@ -31,7 +36,7 @@ public class PipeScript : MonoBehaviour
         }
 
     }
-    void ClosePipe()
+    public void ClosePipe()
     {
         float topPipeY = -topPipe.transform.localPosition.y + openGap;
         bottomPipe.transform.localPosition = new Vector3(0, topPipeY, 0);

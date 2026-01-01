@@ -37,9 +37,7 @@ public class PipeSpawnScript : MonoBehaviour
         float lowestPoint = transform.position.y - offset;
         float highestPoint = transform.position.y + offset;
         GameObject newPipe = Instantiate(pipePrefab, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
-        if (RandomValue > 0.7f)
-        {
-            newPipe.GetComponent<PipeScript>().isClosed = true;
-        }
+
+        newPipe.GetComponent<PipeScript>().Init(RandomValue > 0.7f);
     }
 }
