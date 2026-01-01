@@ -44,7 +44,6 @@ public class PipeScript : MonoBehaviour
     }
     public void OpenPipe()
     {
-        target.SetActive(false);
         isClosed = false;
         StartCoroutine(OpenPipeAnimation());
     }
