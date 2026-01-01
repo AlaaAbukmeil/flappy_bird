@@ -19,7 +19,11 @@ public class LogicScript : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         highScoreText.text = "Best: " + highScore.ToString();
     }
-    [ContextMenu("Increase Score")]
+    [ContextMenu("Add 10 Score")]
+    public void AddTenScore()
+    {
+        AddScore(10);
+    }
     public void AddScore(int scoreToAdd)
     {
         playerScore+= scoreToAdd;

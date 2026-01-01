@@ -12,6 +12,7 @@ public class PipeScript : MonoBehaviour
     public GameObject bottomPipe;
     public GameObject target;
     public float openGap = 3f;
+    public float openSpeed = 2f;
     void Start()
     {
         if (isClosed)
@@ -38,9 +39,25 @@ public class PipeScript : MonoBehaviour
     }
     public void OpenPipe()
     {
-        float topPipeY = -topPipe.transform.localPosition.y;
-        bottomPipe.transform.localPosition = new Vector3(0, topPipeY, 0);
         target.SetActive(false);
         isClosed = false;
+        StartCoroutine(OpenPipeAnimation());
+    }
+
+    IEnumerator OpenPipeAnimation()
+    {
+        Vector3 targetPosition = new Vector3(0, -topPipe.transform.localPosition.y, 0);
+
+        while (Vector3.Distance(bottomPipe.transform.localPosition, targetPosition) > 0.01f)
+        {
+            bottomPipe.transform.localPosition = Vector3.Lerp(
+                bottomPipe.transform.localPosition,
+                targetPosition,
+                openSpeed * Time.deltaTime
+            );
+            yield return null;
+        }
+
+        bottomPipe.transform.localPosition = targetPosition;
     }
 }

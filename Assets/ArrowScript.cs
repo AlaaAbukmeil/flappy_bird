@@ -16,12 +16,22 @@ public class ArrowScript : MonoBehaviour
         transform.position += Vector3.right * speed * Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+   void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("Target"))
     {
-        if (collision.CompareTag("Target"))
-        {
-            collision.GetComponentInParent<PipeScript>().OpenPipe();
+            PipeMiddleScript middle = collision.GetComponentInParent<PipeMiddleScript>();
+            if (middle != null)
+            {
+                middle.TargetHit();
+            }
+            else
+            {
+                Debug.Log("PipeMiddleScript is null");
+            }
+            Destroy(collision.gameObject);
             Destroy(gameObject);
-        }
     }
+}
+
 }
